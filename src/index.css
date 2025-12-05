@@ -1,3 +1,6 @@
+/* biome-ignore lint: no need */
+@unocss;
+
 body {
   margin: 0;
   color: #fff;
