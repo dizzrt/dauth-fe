@@ -9,6 +9,9 @@
   "[javascript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
+  "files.associations": {
+    "*.vue": "vue"
+  },
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
