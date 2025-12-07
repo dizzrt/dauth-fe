@@ -13,4 +13,16 @@ export default defineConfig({
   html: {
     template: './static/index.html',
   },
+
+  server: {
+    port: 3000,
+    proxy: {
+      '/api': {
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: { '^/api': '' },
+        target: 'http://api.dauth.com:8081',
+      },
+    },
+  },
 });

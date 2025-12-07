@@ -27,3 +27,13 @@
   opacity: 0.5;
 }
 </style>
+
+<script lang="ts" setup>
+// import { onMounted } from 'vue';
+// import { GetUserInfo } from '@/api';
+
+// onMounted(async () => {
+//   const userInfo = await GetUserInfo(10000);
+//   console.log(userInfo);
+// });
+</script>
