@@ -28,7 +28,7 @@
 }
 </style>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 // import { onMounted } from 'vue';
 // import { GetUserInfo } from '@/api';
 

@@ -23,7 +23,7 @@
   </DefaultLayout>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { GlobalTheme } from 'naive-ui';
 import { ref } from 'vue';
 import { DefaultLayout } from '@/layouts';
