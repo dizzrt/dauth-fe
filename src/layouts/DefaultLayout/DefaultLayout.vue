@@ -3,8 +3,8 @@
     <n-layout class="flex wh-full" content-class="n-layout-content-style">
       <n-layout-header
         v-if="props.hasHeader ?? false"
-        class="w-full"
-        :style="{ 'height': props.headerProps?.height ?? DEFAULT_HEADER_HEIGHT }"
+        class="w-full box-border border-b-1 border-b-solid"
+        :style="{ 'height': props.headerProps?.height ?? DEFAULT_LAYOUT_STYLE.HEADER_HEIGHT, 'border-bottom-color': props.theme ? '#5454547a' : '#3c3c3c1f' }"
       >
         <slot name="header"/>
       </n-layout-header>
@@ -15,7 +15,7 @@
             v-if="props.hasSider ?? false"
             collapse-mode="width"
             :collapsed-width="0"
-            :width="props.siderProps?.width ?? DEFAULT_SIDER_WIDTH"
+            :width="props.siderProps?.width ?? DEFAULT_LAYOUT_STYLE.SIDER_WIDTH"
             :show-collapsed-content="false"
             :show-trigger="props.siderProps?.collapsible? 'bar' : false"
             :native-scrollbar="false"
@@ -34,7 +34,7 @@
             <n-layout-footer
               v-if="props.hasFooter ?? false"
               class="w-full mt-auto shrink-0"
-              :style="{ 'height': props.footerProps?.height ?? DEFAULT_FOOTER_HEIGHT }"
+              :style="{ 'height': props.footerProps?.height ?? DEFAULT_LAYOUT_STYLE.FOOTER_HEIGHT }"
             >
               <slot name="footer"/>
             </n-layout-footer>
@@ -91,9 +91,8 @@ import {
   NLayoutSider,
   NWatermark,
 } from 'naive-ui';
-
+import { DEFAULT_LAYOUT_STYLE } from '@/constants';
 import type { DefaultLayoutProps } from './types';
-import { DEFAULT_FOOTER_HEIGHT, DEFAULT_HEADER_HEIGHT, DEFAULT_SIDER_WIDTH } from './types';
 
 const props = withDefaults(defineProps<DefaultLayoutProps>(), {});
 </script>

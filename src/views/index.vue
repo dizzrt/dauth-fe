@@ -1,5 +1,5 @@
 <template>
-  <DefaultLayout
+  <default-layout
     has-header
     has-sider
     has-footer
@@ -8,7 +8,9 @@
     :theme="theme"
   >
     <template #header>
-      <div>header</div>
+      <d-header @switch-theme="switchTheme">
+        <div>header</div>
+      </d-header>
     </template>
 
     <template #footer>
@@ -20,13 +22,18 @@
     </template>
 
     <RouterView/>
-  </DefaultLayout>
+  </default-layout>
 </template>
 
 <script setup lang="ts">
 import type { GlobalTheme } from 'naive-ui';
+import { darkTheme } from 'naive-ui';
 import { ref } from 'vue';
+import { DHeader } from '@/components';
 import { DefaultLayout } from '@/layouts';
 
 const theme = ref<GlobalTheme | null>(null);
+const switchTheme = (isDark: boolean): void => {
+  theme.value = isDark ? darkTheme : null;
+};
 </script>

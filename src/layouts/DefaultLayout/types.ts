@@ -1,9 +1,5 @@
 import type { GlobalTheme } from 'naive-ui';
 
-export const DEFAULT_SIDER_WIDTH = '240px';
-export const DEFAULT_HEADER_HEIGHT = '64px';
-export const DEFAULT_FOOTER_HEIGHT = '48px';
-
 export interface HeaderProps {
   height?: string;
 }
