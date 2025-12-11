@@ -1,7 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router';
 import { createRouter, createWebHistory } from 'vue-router';
 
-import ClientRoutes from './client_routes';
+import SPRoutes from './sp_routes';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/HomePage.vue'),
         meta: {},
       },
-      ...ClientRoutes,
+      ...SPRoutes,
     ],
   },
 ];
