@@ -3,6 +3,11 @@
     <slot/>
 
     <n-flex class="ml-auto items-center">
+      <!-- TODO user avatar -->
+      <n-dropdown :trigger="'click'" :options="avatarDropdownOptions" @select="avatarDropdownSelectHandler">
+        <n-avatar class="cursor-pointer" round>{{ userStore.user?.username }}</n-avatar>
+      </n-dropdown>
+
       <n-switch v-model:value="isDarkTheme" :rail-style="railStyle" @update:value="switchTheme">
         <template #checked-icon>
           <n-icon-wrapper
@@ -33,13 +38,16 @@
 <style lang="less" scoped></style>
 
 <script setup lang="ts">
-import { MoonOutline, SunnyOutline } from '@vicons/ionicons5';
-import { NFlex, NIcon, NIconWrapper, NSwitch, useThemeVars } from 'naive-ui';
-import type { CSSProperties } from 'vue';
-import { ref } from 'vue';
+import { LogOutOutline, MoonOutline, SunnyOutline } from '@vicons/ionicons5';
+import { NAvatar, NDropdown, NFlex, NIcon, NIconWrapper, NSwitch, useThemeVars } from 'naive-ui';
+import type { DropdownGroupOption, DropdownMixedOption, DropdownOption } from 'naive-ui/es/dropdown/src/interface';
+import type { Component, CSSProperties } from 'vue';
+import { h, ref } from 'vue';
 import { DEFAULT_LAYOUT_STYLE } from '@/constants';
+import { useUserStore } from '@/stores/user.store';
 import type { DHeaderEmits, DHeaderProps } from './types';
 
+const userStore = useUserStore();
 const themeVars = useThemeVars();
 
 const emits = defineEmits<DHeaderEmits>();
@@ -62,5 +70,27 @@ const railStyle = ({ checked }: { checked: boolean }) => {
   }
 
   return style;
+};
+
+const renderIcon = (icon: Component) => {
+  return () => {
+    return h(NIcon, null, {
+      default: () => h(icon),
+    });
+  };
+};
+
+const avatarDropdownOptions: DropdownMixedOption[] = [
+  {
+    label: '退出登录',
+    key: 'logout',
+    icon: renderIcon(LogOutOutline),
+  },
+];
+
+const avatarDropdownSelectHandler = (key: string | number, _option: DropdownOption | DropdownGroupOption): void => {
+  if (key === 'logout') {
+    userStore.logout();
+  }
 };
 </script>

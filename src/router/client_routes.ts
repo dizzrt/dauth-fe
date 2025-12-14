@@ -2,7 +2,7 @@ import type { RouteRecordRaw } from 'vue-router';
 
 const ClientRoutes: RouteRecordRaw[] = [
   {
-    path: '/client',
+    path: 'client',
     meta: {},
     children: [
       {
