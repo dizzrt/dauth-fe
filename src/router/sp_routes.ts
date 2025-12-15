@@ -2,12 +2,12 @@ import type { RouteRecordRaw } from 'vue-router';
 
 const SPRoutes: RouteRecordRaw[] = [
   {
-    path: '/sp',
+    path: 'sp',
     meta: {},
     children: [
       {
         path: 'list',
-        name: 'sp-list',
+        name: '/sp/list',
         component: () => import('@/views/sp/SPListPage.vue'),
         meta: {},
       },

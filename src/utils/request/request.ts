@@ -1,6 +1,6 @@
 import type { AxiosError, AxiosInstance, AxiosResponse, CancelTokenSource } from 'axios';
 import axios, { isCancel } from 'axios';
-import type { ApiResponse } from '@/api/types/base';
+import type { ApiResponse } from '@/types';
 import type { PendingRequest, RequestError, RequestOptions } from './types';
 
 const pendingRequests = new Map<string, PendingRequest>();
