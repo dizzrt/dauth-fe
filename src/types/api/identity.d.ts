@@ -1,16 +1,5 @@
 import type { User } from '@/types';
-
-// biome-ignore lint/suspicious/noExplicitAny: No need.
-export interface ApiResponse<T = any> {
-  status: number;
-  message: string;
-  data: T;
-}
-
-export interface BaseResp {
-  code: number;
-  message: string;
-}
+import type { BaseResp } from '@/types/api';
 
 export interface LoginResp {
   user: User;

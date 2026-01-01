@@ -1,4 +1,4 @@
-import type { LoginResp, UserInfoResp } from '@/types';
+import type { LoginResp, UserInfoResp } from '@/types/api';
 import { Get, Post } from '@/utils/request';
 
 export const IdentityLogin = (account: string, password: string) => {

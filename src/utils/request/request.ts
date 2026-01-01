@@ -1,6 +1,7 @@
 import type { AxiosError, AxiosInstance, AxiosResponse, CancelTokenSource } from 'axios';
 import axios, { isCancel } from 'axios';
-import type { ApiResponse } from '@/types';
+import { useUserStore } from '@/stores';
+import type { ApiResponse } from '@/types/api';
 import type { PendingRequest, RequestError, RequestOptions } from './types';
 
 const pendingRequests = new Map<string, PendingRequest>();
@@ -92,6 +93,11 @@ client.interceptors.request.use(
     addPendingRequest(options);
 
     // TODO inject auth token
+    const userStore = useUserStore();
+    const token = userStore.token;
+    if (token) {
+      options.headers.Authorization = token;
+    }
 
     return options;
   },
